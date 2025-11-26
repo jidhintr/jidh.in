@@ -174,6 +174,15 @@ const skillsData = {
 };
 
 // ===================================
+// Icon Error Handler
+// ===================================
+function handleSkillIconError(img, name) {
+    img.onerror = null; // Prevent infinite loop
+    // Generate a meaningful avatar based on the name (initials) with a random background
+    img.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random&color=fff&size=128`;
+}
+
+// ===================================
 // Render Skills
 // ===================================
 function renderSkills() {
@@ -196,7 +205,7 @@ function renderSkills() {
         // Handle category icon (image or emoji)
         let iconHtml;
         if (categoryData.icon.startsWith('http') || categoryData.icon.includes('/')) {
-            iconHtml = `<img src="${categoryData.icon}" alt="${categoryName}" class="skill-icon-img-large">`;
+            iconHtml = `<img src="${categoryData.icon}" alt="${categoryName}" class="skill-icon-img-large" onerror="handleSkillIconError(this, '${categoryName}')">`;
         } else {
             iconHtml = `<span class="skill-icon-large">${categoryData.icon}</span>`;
         }
@@ -219,7 +228,7 @@ function renderSkills() {
                 // Handle item icon (image or emoji)
                 let itemIconHtml;
                 if (item.icon.startsWith('http') || item.icon.includes('/')) {
-                    itemIconHtml = `<img src="${item.icon}" alt="${item.name}" class="skill-icon-img">`;
+                    itemIconHtml = `<img src="${item.icon}" alt="${item.name}" class="skill-icon-img" onerror="handleSkillIconError(this, '${item.name}')">`;
                 } else {
                     itemIconHtml = `<span class="skill-item-icon">${item.icon}</span>`;
                 }
