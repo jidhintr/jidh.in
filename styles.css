@@ -1600,6 +1600,14 @@ section {
         left: 0;
     }
 
+    .timeline-date {
+        position: static;
+        /* Remove absolute positioning on mobile */
+        display: inline-block;
+        margin-bottom: var(--spacing-sm);
+        /* Add spacing below the date */
+    }
+
     .skills-grid,
     .philosophy-grid,
     .achievements-grid {
