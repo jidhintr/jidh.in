@@ -1037,7 +1037,22 @@ section {
    Philosophy Section
    =================================== */
 .philosophy {
-    background: var(--color-bg-philosophy);
+    background: #B39DDB;
+    /* 40% lighter grape color */
+    padding: 0 0 var(--spacing-4xl) 0;
+    /* No top padding, bottom padding only */
+}
+
+.philosophy .section-title {
+    color: #1a5f3a !important;
+    /* Dark green to match timeline */
+    background: none !important;
+    /* Remove gradient */
+    -webkit-text-fill-color: #1a5f3a !important;
+    /* Override transparent fill */
+    margin-bottom: var(--spacing-3xl);
+    padding-top: var(--spacing-2xl);
+    /* Reduced by 50% from 4xl to 2xl */
 }
 
 .philosophy-grid {
@@ -1056,6 +1071,32 @@ section {
     transition: all var(--transition-base);
     opacity: 0;
     transform: scale(0.95);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left accent border like timeline cards */
+.philosophy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--card-color, #8E24AA);
+    transition: width 0.3s ease;
+}
+
+.philosophy-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--card-color, #8E24AA) 0%, transparent 100%);
+    opacity: 0.03;
+    pointer-events: none;
 }
 
 .philosophy-card.visible {
@@ -1064,28 +1105,110 @@ section {
 }
 
 .philosophy-card:hover {
-    border-color: var(--color-accent-purple);
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    border-color: var(--card-color, #8E24AA);
+    box-shadow: 0 20px 40px -15px color-mix(in srgb, var(--card-color, #8E24AA) 30%, transparent);
     transform: translateY(-5px) scale(1.02);
 }
 
+.philosophy-card:hover::before {
+    width: 6px;
+}
+
 .philosophy-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-accent-purple);
+    width: 46px;
+    height: 46px;
+    /* Reduced by 5% from 48px */
+    color: var(--card-color, #8E24AA);
+    z-index: 1;
+    position: relative;
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
 }
 
 .philosophy-card h3 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
+    /* Reduced from xl for better inline fit */
     font-weight: 600;
     color: var(--color-text-primary);
-    margin-bottom: var(--spacing-md);
+    margin: 0;
+    /* Remove margin for inline layout */
+    position: relative;
+    z-index: 1;
+}
+
+/* Wrapper for icon and heading */
+.philosophy-card {
+    display: flex;
+    flex-direction: column;
+    /* Stack header and description */
+}
+
+/* Create a flex container for icon + heading */
+.philosophy-card>img+h3,
+.philosophy-card>.philosophy-icon+h3 {
+    display: inline-block;
+    margin-left: var(--spacing-md);
+}
+
+/* Adjust card structure to support horizontal header */
+.philosophy-card>* {
+    width: 100%;
+}
+
+.philosophy-card>img,
+.philosophy-card>.philosophy-icon {
+    width: 46px !important;
+    /* Match reduced icon size */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.philosophy-card>h3 {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 46px - var(--spacing-md));
+    /* Adjusted for new icon size */
+    margin-left: var(--spacing-md);
 }
 
 .philosophy-card p {
     color: var(--color-text-secondary);
     line-height: 1.7;
+    position: relative;
+    z-index: 1;
+    margin-top: var(--spacing-md);
+    /* Add spacing between header and description */
+}
+
+/* Individual card colors */
+.philosophy-card:nth-child(1) {
+    --card-color: #8E24AA;
+    /* Purple */
+}
+
+.philosophy-card:nth-child(2) {
+    --card-color: #1E88E5;
+    /* Blue */
+}
+
+.philosophy-card:nth-child(3) {
+    --card-color: #00897B;
+    /* Teal */
+}
+
+.philosophy-card:nth-child(4) {
+    --card-color: #FFB300;
+    /* Amber */
+}
+
+.philosophy-card:nth-child(5) {
+    --card-color: #3949AB;
+    /* Indigo */
+}
+
+.philosophy-card:nth-child(6) {
+    --card-color: #E91E63;
+    /* Pink */
 }
 
 /* ===================================
@@ -1152,7 +1275,8 @@ section {
    Contact Section
    =================================== */
 .contact {
-    background: var(--color-bg-contact);
+    background: #f3e8ff;
+    /* Light purple background */
 }
 
 .contact-content {
@@ -1168,18 +1292,26 @@ section {
 .contact-text .lead {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-lg);
+    color: #1f2937;
+    /* Dark text for contrast on light purple */
 }
 
 .contact-text p {
-    color: var(--color-text-secondary);
+    color: #4a5568;
+    /* Darker text for contrast on light purple */
     font-size: var(--font-size-lg);
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    /* Equal spacing between buttons */
     margin-bottom: var(--spacing-3xl);
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-card {
@@ -1187,17 +1319,20 @@ section {
     backdrop-filter: blur(var(--blur-sm));
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
-    text-align: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
     text-decoration: none;
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     position: relative;
     overflow: hidden;
+    width: 20%;
+    /* 20% wider */
+    min-width: 200px;
 }
 
 /* Left accent border like timeline cards */
@@ -1208,8 +1343,8 @@ section {
     left: 0;
     width: 4px;
     height: 100%;
-    background: #4a5568;
-    /* Dark grey accent */
+    background: #8E24AA;
+    /* Purple accent to contrast with light purple background */
     transition: width 0.3s ease;
 }
 
@@ -1220,14 +1355,16 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #4a5568 0%, transparent 100%);
+    background: linear-gradient(135deg, #8E24AA 0%, transparent 100%);
+    /* Purple gradient */
     opacity: 0.03;
     pointer-events: none;
 }
 
 .contact-card:hover {
-    border-color: #4a5568;
-    box-shadow: 0 20px 40px -15px rgba(74, 85, 104, 0.3);
+    border-color: #8E24AA;
+    box-shadow: 0 20px 40px -15px rgba(142, 36, 170, 0.3);
+    /* Purple shadow */
     transform: translateY(-5px) scale(1.01);
 }
 
@@ -1236,27 +1373,104 @@ section {
 }
 
 .contact-icon {
-    width: 40px;
-    height: 40px;
-    color: #4a5568;
-    /* Dark grey to match timeline */
+    width: 24px;
+    height: 24px;
+    color: #8E24AA;
+    /* Purple to match accent */
     z-index: 1;
+    flex-shrink: 0;
 }
 
 .contact-card h3 {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: 600;
     color: var(--color-text-primary);
+    margin: 0;
+    white-space: nowrap;
 }
 
 .contact-card p {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
-    word-break: break-word;
+    display: none;
+    /* Hide the subtitle text for compact layout */
 }
 
 .contact-cta {
     text-align: center;
+}
+
+/* Individual button colors */
+/* Gmail - Red */
+.contact-card.gmail::before {
+    background: #EA4335;
+}
+
+.contact-card.gmail::after {
+    background: linear-gradient(135deg, #EA4335 0%, transparent 100%);
+}
+
+.contact-card.gmail .contact-icon {
+    color: #EA4335;
+}
+
+.contact-card.gmail:hover {
+    border-color: #EA4335;
+    box-shadow: 0 20px 40px -15px rgba(234, 67, 53, 0.3);
+}
+
+/* LinkedIn - Blue */
+.contact-card.linkedin::before {
+    background: #0A66C2;
+}
+
+.contact-card.linkedin::after {
+    background: linear-gradient(135deg, #0A66C2 0%, transparent 100%);
+}
+
+.contact-card.linkedin .contact-icon {
+    color: #0A66C2;
+}
+
+.contact-card.linkedin:hover {
+    border-color: #0A66C2;
+    box-shadow: 0 20px 40px -15px rgba(10, 102, 194, 0.3);
+}
+
+/* Resume - Green */
+.contact-card.resume::before {
+    background: #10b981;
+}
+
+.contact-card.resume::after {
+    background: linear-gradient(135deg, #10b981 0%, transparent 100%);
+}
+
+.contact-card.resume .contact-icon {
+    color: #10b981;
+}
+
+.contact-card.resume:hover {
+    border-color: #10b981;
+    box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.3);
+}
+
+/* Green send button for contact section */
+.contact .btn-primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    /* Green gradient */
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+.contact .btn-primary:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+}
+
+/* Section title color for light purple background */
+.contact .section-title {
+    color: #1f2937;
+    /* Dark text for contrast */
 }
 
 /* ===================================
