@@ -832,6 +832,20 @@ section {
 
 .skill-item-icon {
     font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}
+
+.skill-icon-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.skill-icon-img-large {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .skill-tag:hover {
