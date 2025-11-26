@@ -38,6 +38,14 @@
     --color-accent-green: #A3B18A;
     --color-accent-blue: #A3B18A;
 
+    /* Material Design Colors */
+    --mat-red: #E53935;
+    --mat-blue: #1E88E5;
+    --mat-purple: #8E24AA;
+    --mat-teal: #00897B;
+    --mat-amber: #FFB300;
+    --mat-indigo: #3949AB;
+
     /* Gradients - Minimal/None */
     --gradient-primary: #A3B18A;
     --gradient-secondary: linear-gradient(135deg, #A3B18A 0%, #EDE6DB 100%);
@@ -668,11 +676,95 @@ section {
 
 .timeline-content {
     background: var(--color-bg-card);
-    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-xl);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy pop */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Material Design Card Variants */
+.timeline-item.mat-red .timeline-content {
+    --card-accent: var(--mat-red);
+}
+
+.timeline-item.mat-blue .timeline-content {
+    --card-accent: var(--mat-blue);
+}
+
+.timeline-item.mat-purple .timeline-content {
+    --card-accent: var(--mat-purple);
+}
+
+.timeline-item.mat-teal .timeline-content {
+    --card-accent: var(--mat-teal);
+}
+
+.timeline-item.mat-amber .timeline-content {
+    --card-accent: var(--mat-amber);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--card-accent, var(--color-accent-cyan));
+    transition: width 0.3s ease;
+}
+
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--card-accent) 0%, transparent 100%);
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 40px -15px color-mix(in srgb, var(--card-accent) 30%, transparent);
+    border-color: color-mix(in srgb, var(--card-accent) 20%, transparent);
+}
+
+.timeline-content:hover::before {
+    width: 6px;
+}
+
+/* Colorize internal elements based on card accent */
+.timeline-item .timeline-header h4,
+.timeline-item .company-row h4 {
+    color: var(--card-accent, var(--color-accent-cyan)) !important;
+}
+
+.timeline-item .tag {
+    border-color: color-mix(in srgb, var(--card-accent) 20%, transparent);
+    color: color-mix(in srgb, var(--card-accent) 80%, black);
+    background: color-mix(in srgb, var(--card-accent) 5%, transparent);
+}
+
+.timeline-item .tag:hover {
+    background: var(--card-accent);
+    color: white;
+    border-color: var(--card-accent);
+}
+
+.timeline-item .timeline-marker {
+    border-color: var(--card-accent, var(--color-accent-cyan));
+    background: var(--color-bg-primary);
+}
+
+.timeline-item .timeline-date {
+    color: var(--card-accent, var(--color-text-muted));
+    font-weight: 600;
 }
 
 .timeline-text {
