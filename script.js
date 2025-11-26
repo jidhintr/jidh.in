@@ -29,7 +29,7 @@ function updateScrollProgress() {
     }
 }
 
-window.addEventListener('scroll', updateScrollProgress);
+
 
 // ===================================
 // Animated Counter for Hero Metrics
@@ -79,10 +79,7 @@ document.querySelectorAll('.timeline-item').forEach(item => {
     animateOnScroll.observe(item);
 });
 
-// Observe skill categories
-document.querySelectorAll('.skill-category').forEach(category => {
-    animateOnScroll.observe(category);
-});
+
 
 // Observe philosophy cards
 document.querySelectorAll('.philosophy-card').forEach(card => {
@@ -140,7 +137,7 @@ function updateActiveNavLink() {
     });
 }
 
-window.addEventListener('scroll', updateActiveNavLink);
+
 
 // ===================================
 // Parallax Effect for Hero Background
@@ -154,7 +151,7 @@ function parallaxEffect() {
     }
 }
 
-window.addEventListener('scroll', parallaxEffect);
+
 
 // ===================================
 // Add Hover Effect to Skill Tags

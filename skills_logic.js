@@ -126,6 +126,25 @@ const skillsData = {
             { "name": "Saga Pattern", "icon": "https://img.icons8.com/color/48/open-book.png" }
         ]
     },
+    "Tools & Security": {
+        "icon": "https://img.icons8.com/fluency/48/security-checked.png",
+        "color": "#5d404aff",
+        "items": [
+            { "name": "Sonar", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg" },
+            { "name": "NDepend", "icon": "https://img.icons8.com/color/48/graph.png" },
+            { "name": "Nginx", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" },
+            { "name": "Static code analyser", "icon": "https://img.icons8.com/color/48/microscope.png" },
+            { "name": "OWIN", "icon": "https://img.icons8.com/color/48/internet.png" },
+            { "name": "OpenID Authentications", "icon": "https://img.icons8.com/color/48/lock.png" },
+            { "name": "API Gateway", "icon": "https://img.icons8.com/color/48/door.png" },
+            { "name": "OWASP", "icon": "https://img.icons8.com/color/48/shield.png" },
+            { "name": "OAuth2", "icon": "https://img.icons8.com/color/48/key.png" },
+            { "name": "SAML", "icon": "https://img.icons8.com/color/48/access.png" },
+            { "name": "SOAP", "icon": "https://img.icons8.com/color/48/soap.png" },
+            { "name": "JWT", "icon": "https://img.icons8.com/color/48/json.png" },
+            { "name": "TLS/SSL", "icon": "https://img.icons8.com/color/48/ssl.png" }
+        ]
+    },
     "Messaging & Containerization": {
         "icon": "https://img.icons8.com/fluency/48/box.png",
         "color": "#1b3b35ff",
@@ -150,25 +169,6 @@ const skillsData = {
             { "name": "Bash", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" },
             { "name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
             { "name": "Ansible", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg" }
-        ]
-    },
-    "Tools & Security": {
-        "icon": "https://img.icons8.com/fluency/48/security-checked.png",
-        "color": "#5d404aff",
-        "items": [
-            { "name": "Sonar", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg" },
-            { "name": "NDepend", "icon": "https://img.icons8.com/color/48/graph.png" },
-            { "name": "Nginx", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" },
-            { "name": "Static code analyser", "icon": "https://img.icons8.com/color/48/microscope.png" },
-            { "name": "OWIN", "icon": "https://img.icons8.com/color/48/internet.png" },
-            { "name": "OpenID Authentications", "icon": "https://img.icons8.com/color/48/lock.png" },
-            { "name": "API Gateway", "icon": "https://img.icons8.com/color/48/door.png" },
-            { "name": "OWASP", "icon": "https://img.icons8.com/color/48/shield.png" },
-            { "name": "OAuth2", "icon": "https://img.icons8.com/color/48/key.png" },
-            { "name": "SAML", "icon": "https://img.icons8.com/color/48/access.png" },
-            { "name": "SOAP", "icon": "https://img.icons8.com/color/48/soap.png" },
-            { "name": "JWT", "icon": "https://img.icons8.com/color/48/json.png" },
-            { "name": "TLS/SSL", "icon": "https://img.icons8.com/color/48/ssl.png" }
         ]
     }
 };
@@ -244,33 +244,9 @@ function renderSkills() {
             });
         };
 
-        // Check if items is a direct array or nested categories
+        // Render items
         if (categoryData.items) {
             renderItems(categoryData.items);
-        } else {
-            // Handle nested categories (e.g., Testing, Databases)
-            for (const [subCategoryName, subCategoryItems] of Object.entries(categoryData)) {
-                if (subCategoryName === 'icon' || subCategoryName === 'color') continue;
-
-                // Add a sub-header if needed, or just separator
-                if (tagsContainer.children.length > 0) {
-                    const separator = document.createElement('div');
-                    separator.className = 'skill-separator';
-                    separator.textContent = subCategoryName;
-                    separator.style.color = categoryData.color;
-                    tagsContainer.appendChild(separator);
-                } else {
-                    // First group, maybe add a label too if it's a mixed bag? 
-                    // For now, let's just add the label for clarity
-                    const separator = document.createElement('div');
-                    separator.className = 'skill-separator';
-                    separator.textContent = subCategoryName;
-                    separator.style.color = categoryData.color;
-                    tagsContainer.appendChild(separator);
-                }
-
-                renderItems(subCategoryItems);
-            }
         }
 
         categoryElement.appendChild(tagsContainer);
