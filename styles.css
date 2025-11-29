@@ -3,6 +3,7 @@
    =================================== */
 :root {
     /* Colors - Modern & Minimal */
+    /* Colors - Modern & Minimal */
     --color-bg-primary: #FAFAFA;
     /* Soft White */
     --color-bg-secondary: #FFFFFF;
@@ -1617,6 +1618,20 @@ section {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Gravity Canvas */
+#gravity-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    /* Overlay on top of content */
+    pointer-events: none;
+    /* Allow clicks to pass through */
+    background: transparent;
 }
 
 @media (max-width: 480px) {

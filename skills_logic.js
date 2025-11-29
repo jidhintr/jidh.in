@@ -99,7 +99,6 @@ const skillsData = {
         "color": "#6ddc0dff",
         "items": [
             { "name": "SOLID", "icon": "https://img.icons8.com/color/48/diamond.png" },
-            { "name": "Event-Driven", "icon": "https://img.icons8.com/color/48/satellite-sending-signal.png" },
             { "name": "TDD", "icon": "https://img.icons8.com/color/48/test-tube.png" },
             { "name": "BDD", "icon": "https://img.icons8.com/color/48/comedy.png" },
             { "name": "OOP", "icon": "https://img.icons8.com/color/48/module.png" },
@@ -116,6 +115,7 @@ const skillsData = {
         "items": [
             { "name": "Microservices", "icon": "https://img.icons8.com/color/48/link.png" },
             { "name": "Distributed System", "icon": "https://img.icons8.com/color/48/internet.png" },
+            { "name": "Event-Driven", "icon": "https://img.icons8.com/color/48/satellite-sending-signal.png" },
             { "name": "RESTful APIs", "icon": "https://img.icons8.com/color/48/electrical.png" },
             { "name": "SOAP", "icon": "https://img.icons8.com/color/48/soap.png" },
             { "name": "MVVM", "icon": "https://img.icons8.com/color/48/ruler.png" },
@@ -132,9 +132,9 @@ const skillsData = {
         "items": [
             { "name": "Sonar", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg" },
             { "name": "NDepend", "icon": "https://img.icons8.com/color/48/graph.png" },
+            { "name": "OWIN", "icon": "https://img.icons8.com/color/48/internet.png" },
             { "name": "Nginx", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" },
             { "name": "Static code analyser", "icon": "https://img.icons8.com/color/48/microscope.png" },
-            { "name": "OWIN", "icon": "https://img.icons8.com/color/48/internet.png" },
             { "name": "OpenID Authentications", "icon": "https://img.icons8.com/color/48/lock.png" },
             { "name": "API Gateway", "icon": "https://img.icons8.com/color/48/door.png" },
             { "name": "OWASP", "icon": "https://img.icons8.com/color/48/shield.png" },
