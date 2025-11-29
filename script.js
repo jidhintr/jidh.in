@@ -218,3 +218,25 @@ window.addEventListener('load', () => {
 // ===================================
 // Skills Data & Rendering
 // ===================================
+
+// ===================================
+// Dynamic SEO Date Update
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        const script = document.querySelector('script[type="application/ld+json"]');
+        if (script) {
+            const data = JSON.parse(script.textContent);
+            if (data['@graph']) {
+                const webPage = data['@graph'].find(item => item['@type'] === 'WebPage');
+                if (webPage) {
+                    webPage.dateModified = new Date().toISOString();
+                    script.textContent = JSON.stringify(data, null, 2);
+                    console.log('SEO: dateModified updated to ' + webPage.dateModified);
+                }
+            }
+        }
+    } catch (e) {
+        console.error('Error updating SEO date:', e);
+    }
+});
