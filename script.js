@@ -81,6 +81,11 @@ document.querySelectorAll('.timeline-item').forEach(item => {
 
 
 
+// Observe project cards
+document.querySelectorAll('.project-card').forEach(card => {
+    animateOnScroll.observe(card);
+});
+
 // Observe philosophy cards
 document.querySelectorAll('.philosophy-card').forEach(card => {
     animateOnScroll.observe(card);
@@ -151,7 +156,40 @@ function parallaxEffect() {
     }
 }
 
+// ===================================
+// LinkedIn Feed Scroll Buttons
+// ===================================
+function initScrollButtons() {
+    const wrappers = document.querySelectorAll('.feed-wrapper');
 
+    wrappers.forEach(wrapper => {
+        const scrollContainer = wrapper.querySelector('.linkedin-scroll-container');
+        const scrollLeftBtn = wrapper.querySelector('.scroll-btn.scroll-left');
+        const scrollRightBtn = wrapper.querySelector('.scroll-btn.scroll-right');
+
+        if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({
+                    left: -550,
+                    behavior: 'smooth'
+                });
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({
+                    left: 550,
+                    behavior: 'smooth'
+                });
+            });
+            console.log('Scroll buttons initialized for wrapper');
+        } else {
+            console.warn('Scroll elements missing in wrapper');
+        }
+    });
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', initScrollButtons);
 
 // ===================================
 // Add Hover Effect to Skill Tags

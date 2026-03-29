@@ -245,8 +245,18 @@ body {
    Section Styles
    =================================== */
 section {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-xl) 0;
     position: relative;
+    transition: all 0.3s ease;
+    background-color: #FFFFFF;
+    margin: var(--spacing-2xl) var(--spacing-md);
+    border: 1px solid var(--color-accent-cyan);
+    border-radius: var(--border-radius-xl);
+}
+
+section:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    z-index: 10;
 }
 
 .section-title {
@@ -265,14 +275,15 @@ section {
    Hero Section
    =================================== */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     position: relative;
     overflow: hidden;
-    padding-top: 80px;
-    background: var(--color-bg-hero);
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.hero-scroll {
+    display: none;
 }
 
 .hero-background {
@@ -370,6 +381,101 @@ section {
     max-width: 600px;
     margin: 0 auto var(--spacing-3xl);
     animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+/* LinkedIn Feed Styles */
+/* LinkedIn Feed Styles */
+.feed-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.linkedin-scroll-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--spacing-md) 0;
+    /* Custom Scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-cyan) var(--color-bg-secondary);
+    /* Removed scroll-snap to fix button scrolling issues */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Webkit Scrollbar */
+.linkedin-scroll-container::-webkit-scrollbar {
+    height: 8px;
+    /* Horizontal scrollbar height */
+}
+
+.linkedin-scroll-container::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+    border-radius: 4px;
+}
+
+.linkedin-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent-cyan);
+    border-radius: 4px;
+    border: 2px solid var(--color-bg-secondary);
+}
+
+.linkedin-embed {
+    background: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    max-width: 100%;
+    flex-shrink: 0;
+    /* Prevent squishing */
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-accent-cyan);
+    /* Sage Green */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    /* High contrast white text */
+    transition: all var(--transition-base);
+}
+
+.scroll-btn:hover {
+    background: #000000;
+    /* Darker on hover */
+    color: #FFFFFF;
+    transform: translateY(-50%) scale(1.1);
+    border-color: var(--color-accent-cyan);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-btn.scroll-left {
+    left: -60px;
+}
+
+.scroll-btn.scroll-right {
+    right: -60px;
+}
+
+@media (max-width: 768px) {
+    .scroll-btn {
+        display: none;
+        /* Native touch scroll is better on mobile */
+    }
 }
 
 .hero-metrics {
@@ -596,11 +702,139 @@ section {
 }
 
 /* ===================================
+   Projects Section
+   =================================== */
+.projects {
+    background: var(--color-bg-secondary);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
+}
+
+.project-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-accent-cyan);
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-links-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    backdrop-filter: blur(2px);
+}
+
+.project-card:hover .project-links-overlay {
+    opacity: 1;
+}
+
+.project-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-content h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.project-description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    flex-grow: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.project-tech-stack .tag {
+    background: rgba(163, 177, 138, 0.1);
+    color: var(--color-accent-cyan);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(163, 177, 138, 0.3);
+}
+
+.project-role {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: var(--spacing-md);
+    margin-top: auto;
+}
+
+.project-links-overlay .btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.demo-github {
+    background: white;
+    color: #333;
+    border-color: white;
+}
+.demo-github:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* ===================================
    Experience Section
    =================================== */
-.experience {
-    background: var(--color-bg-experience);
-}
+
 
 .timeline {
     max-width: 900px;
@@ -834,8 +1068,8 @@ section {
 }
 
 .company-logo {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     object-fit: contain;
     border-radius: 4px;
 }
@@ -919,15 +1153,15 @@ section {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
 }
 
 .skill-category {
     background: var(--color-bg-card);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-md);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
     opacity: 0;
@@ -996,16 +1230,16 @@ section {
 }
 
 .skill-tag {
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
     background: white;
     color: var(--color-text-secondary);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-sm);
     transition: all var(--transition-fast);
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     font-weight: 500;
     cursor: default;
 }
@@ -1017,8 +1251,8 @@ section {
 }
 
 .skill-icon-img {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     object-fit: contain;
 }
 
@@ -1215,9 +1449,7 @@ section {
 /* ===================================
    Achievements Section
    =================================== */
-.achievements {
-    background: var(--color-bg-achievements);
-}
+
 
 .achievements-grid {
     display: grid;
@@ -1275,10 +1507,7 @@ section {
 /* ===================================
    Contact Section
    =================================== */
-.contact {
-    background: #f3e8ff;
-    /* Light purple background */
-}
+/* .contact background removed */
 
 .contact-content {
     max-width: 800px;
