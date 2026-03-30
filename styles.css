@@ -1560,9 +1560,25 @@ section:hover {
     gap: var(--spacing-sm);
     position: relative;
     overflow: hidden;
-    width: 20%;
-    /* 20% wider */
-    min-width: 200px;
+    flex: 1 1 160px;
+    max-width: 240px;
+}
+
+.contact-card.projects::before {
+    background: var(--color-accent-cyan);
+}
+
+.contact-card.projects::after {
+    background: var(--color-accent-cyan);
+}
+
+.contact-card.projects .contact-icon {
+    filter: drop-shadow(0 2px 4px rgba(163, 177, 138, 0.3));
+}
+
+.contact-card.projects:hover {
+    border-color: var(--color-accent-cyan);
+    cursor: pointer;
 }
 
 /* Left accent border like timeline cards */
