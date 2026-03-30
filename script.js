@@ -63,12 +63,23 @@ const animateOnScroll = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            entry.target.classList.remove('scrolled-past');
 
             // Trigger counter animation for metrics
             if (entry.target.classList.contains('metric')) {
                 const valueElement = entry.target.querySelector('.metric-value');
                 const target = parseInt(valueElement.getAttribute('data-target'));
                 animateCounter(valueElement, target);
+            }
+        } else {
+            // Smooth exit: If element is above the viewport, mark as 'scrolled-past'
+            if (entry.boundingClientRect.top < 0) {
+                entry.target.classList.add('scrolled-past');
+                entry.target.classList.remove('visible');
+            } else {
+                // If below viewport, reset for re-entry animation
+                entry.target.classList.remove('visible');
+                entry.target.classList.remove('scrolled-past');
             }
         }
     });
