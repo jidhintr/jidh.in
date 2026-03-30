@@ -551,4 +551,17 @@ function renderSkills() {
 // Call renderSkills on load
 document.addEventListener('DOMContentLoaded', () => {
     renderSkills();
+
+    // ===================================
+    // Email Obfuscation
+    // ===================================
+    const emailBtn = document.getElementById('email-contact');
+    if (emailBtn) {
+        emailBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const u = 'tr.jidhin';
+            const d = 'gmail.com';
+            window.location.href = `mailto:${u}@${d}`;
+        });
+    }
 });
