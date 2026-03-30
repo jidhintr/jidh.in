@@ -290,14 +290,14 @@ const skillsData = {
             { "name": "C#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
             { "name": "F#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fsharp/fsharp-original.svg" },
             { "name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+            { "name": "Go", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" },
             { "name": ".NET Core", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" },
+            { "name": "C++", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
+            { "name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
             { "name": "ASP.NET", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg" },
             { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
             { "name": "Blazor", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blazor/blazor-original.svg" },
             { "name": "Xamarin", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xamarin/xamarin-original.svg" },
-            { "name": "Go", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" },
-            { "name": "C++", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
-            { "name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
             { "name": "Angular", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" },
             { "name": "Spring Boot", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" }
         ]
@@ -335,18 +335,6 @@ const skillsData = {
 
         ]
     },
-
-    "Cloud, DevOps & Infrastructure": {
-        "icon": "https://img.icons8.com/fluency/48/cloud.png",
-        "color": "#ceea5fff",
-        "items": [
-            { "name": "Azure Functions", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
-            { "name": "Serverless", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
-            { "name": "IaaS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
-            { "name": "PaaS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
-            { "name": "Kubernetes (in house)", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" }
-        ]
-    },
     "DevOps & Version Control": {
         "icon": "https://img.icons8.com/fluency/48/git.png",
         "color": "#7a160bff",
@@ -362,16 +350,22 @@ const skillsData = {
             { "name": "Starfish", "icon": "https://img.icons8.com/color/48/star.png" }
         ]
     },
-    "Project Management": {
+    "Project Management & Cloud Infrastructure": {
         "icon": "https://img.icons8.com/fluency/48/task.png",
         "color": "#dd0707ff",
         "items": [
             { "name": "Agile", "icon": "https://img.icons8.com/color/48/recycle-sign.png" },
             { "name": "Scrum", "icon": "https://img.icons8.com/color/48/recycle-sign.png" },
             { "name": "Kanban", "icon": "https://img.icons8.com/color/48/kanban-chart.png" },
+            { "name": "Release Sign-Off", "icon": "https://img.icons8.com/color/48/checked.png" },
             { "name": "Documentation", "icon": "https://img.icons8.com/color/48/document.png" },
             { "name": "JIRA & Confluence", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
-            { "name": "Release Sign-Off", "icon": "https://img.icons8.com/color/48/checked.png" }
+            { "name": "IaaS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+            { "name": "PaaS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+            { "name": "Azure Functions", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+            { "name": "Serverless", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+            { "name": "Kubernetes (in house)", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" }
+
         ]
     },
     "Development Practices": {
@@ -379,8 +373,6 @@ const skillsData = {
         "color": "#6ddc0dff",
         "items": [
             { "name": "SOLID", "icon": "https://img.icons8.com/color/48/diamond.png" },
-            { "name": "TDD", "icon": "https://img.icons8.com/color/48/test-tube.png" },
-            { "name": "BDD", "icon": "https://img.icons8.com/color/48/comedy.png" },
             { "name": "OOP", "icon": "https://img.icons8.com/color/48/module.png" },
             { "name": "Functional Programming", "icon": "https://img.icons8.com/color/48/lambda.png" },
             { "name": "Peer Code Reviews", "icon": "https://img.icons8.com/color/48/conference-call.png" },
@@ -403,52 +395,48 @@ const skillsData = {
             { "name": "WCF", "icon": "https://img.icons8.com/color/48/wrench.png" },
             { "name": "MVC", "icon": "https://img.icons8.com/color/48/target.png" },
             { "name": "CQRS", "icon": "https://img.icons8.com/color/48/list.png" },
-            { "name": "Saga Pattern", "icon": "https://img.icons8.com/color/48/open-book.png" }
+            { "name": "Saga Pattern", "icon": "https://img.icons8.com/color/48/open-book.png" },
+            { "name": "TDD", "icon": "https://img.icons8.com/color/48/test-tube.png" },
+            { "name": "BDD", "icon": "https://img.icons8.com/color/48/comedy.png" }
         ]
     },
-    "Tools & Security": {
+    "Security & Containers": {
         "icon": "https://img.icons8.com/fluency/48/security-checked.png",
         "color": "#5d404aff",
         "items": [
-            { "name": "Sonar", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg" },
-            { "name": "NDepend", "icon": "https://img.icons8.com/color/48/graph.png" },
             { "name": "OWIN", "icon": "https://img.icons8.com/color/48/internet.png" },
-            { "name": "Nginx", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" },
             { "name": "Static code analyser", "icon": "https://img.icons8.com/color/48/microscope.png" },
             { "name": "OpenID Authentications", "icon": "https://img.icons8.com/color/48/lock.png" },
-            { "name": "API Gateway", "icon": "https://img.icons8.com/color/48/door.png" },
             { "name": "OWASP", "icon": "https://img.icons8.com/color/48/shield.png" },
+            { "name": "API Gateway", "icon": "https://img.icons8.com/color/48/door.png" },
             { "name": "OAuth2", "icon": "https://img.icons8.com/color/48/key.png" },
+            { "name": "JWT", "icon": "https://img.icons8.com/color/48/json.png" },
             { "name": "SAML", "icon": "https://img.icons8.com/color/48/access.png" },
             { "name": "SOAP", "icon": "https://img.icons8.com/color/48/soap.png" },
-            { "name": "JWT", "icon": "https://img.icons8.com/color/48/json.png" },
-            { "name": "TLS/SSL", "icon": "https://img.icons8.com/color/48/ssl.png" }
-        ]
-    },
-    "Messaging & Containerization": {
-        "icon": "https://img.icons8.com/fluency/48/box.png",
-        "color": "#1b3b35ff",
-        "items": [
+            { "name": "TLS/SSL", "icon": "https://img.icons8.com/color/48/ssl.png" },
             { "name": "RabbitMQ", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg" },
             { "name": "Kafka", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" },
             { "name": "Docker", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
             { "name": "Podman", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/podman/podman-original.svg" }
+
         ]
     },
-    "Observability & Scripting": {
+    "Tools, Observability & Scripting": {
         "icon": "https://img.icons8.com/fluency/48/graph.png",
         "color": "#4b2871e4",
         "items": [
             { "name": "Grafana", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" },
             { "name": "Prometheus", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" },
+            { "name": "Sonar", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg" },
+            { "name": "NDepend", "icon": "https://img.icons8.com/color/48/graph.png" },
+            { "name": "Nginx", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" },
             { "name": "ELK Stack", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/elasticsearch/elasticsearch-original.svg" },
             { "name": "Telemetry", "icon": "https://img.icons8.com/color/48/satellite-sending-signal.png" },
             { "name": "DB Profiler", "icon": "https://img.icons8.com/color/48/search.png" },
             { "name": "Splunk", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/splunk/splunk-original.svg" },
-            { "name": "PowerShell", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg" },
             { "name": "Bash", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" },
-            { "name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
-            { "name": "Ansible", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg" }
+            { "name": "Ansible", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg" },
+            { "name": "PowerShell", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg" },
         ]
     }
 };
