@@ -324,13 +324,13 @@ const skillsData = {
         "items": [
             { "name": "Unit Test", "icon": "https://img.icons8.com/color/48/test-tube.png" },
             { "name": "Mock Test", "icon": "https://img.icons8.com/color/48/comedy.png" },
+            { "name": "K6", "icon": "https://img.icons8.com/color/48/graph.png" },
             { "name": "Integration Test", "icon": "https://img.icons8.com/color/48/link.png" },
             { "name": "Regression Test", "icon": "https://img.icons8.com/color/48/repeat.png" },
             { "name": "Soak & Performance Test", "icon": "https://img.icons8.com/color/48/lightning-bolt.png" },
             { "name": "nUnit", "icon": "https://img.icons8.com/color/48/wrench.png" },
             { "name": "xUnit", "icon": "https://img.icons8.com/color/48/multiply.png" },
             { "name": "Moq", "icon": "https://img.icons8.com/color/48/comedy.png" },
-            { "name": "K6", "icon": "https://img.icons8.com/color/48/graph.png" },
             { "name": "JMeter", "icon": "https://img.icons8.com/color/48/settings.png" }
 
         ]

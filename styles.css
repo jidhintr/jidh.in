@@ -294,6 +294,8 @@ section:hover {
     overflow: hidden;
     padding-top: var(--spacing-3xl);
     padding-bottom: var(--spacing-xl);
+    margin-top: 110px !important;
+    /* Push below fixed nav so top border is fully visible */
 }
 
 .hero-scroll {
@@ -474,8 +476,11 @@ section:hover {
 .linkedin-embed-fallback::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.1);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
     opacity: 0;
     transition: opacity var(--transition-base);
     z-index: 1;
@@ -1955,4 +1960,37 @@ section:hover {
         width: 100%;
         text-align: center;
     }
+}
+
+/* ===================================
+   Footer
+   =================================== */
+.site-footer {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin: var(--spacing-md);
+    border-top: 1px solid var(--color-accent-cyan);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-copy {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
 }
