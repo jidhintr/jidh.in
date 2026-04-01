@@ -5,6 +5,6 @@
     "X-Frame-Options": "SAMEORIGIN",
     "X-XSS-Protection": "1; mode=block",
     "Referrer-Policy": "strict-origin-when-cross-origin",
-    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://cdn.jsdelivr.net https://img.icons8.com https://www.google.com https://images.unsplash.com https://ui-avatars.com; font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://www.linkedin.com; connect-src 'self';"
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://cdn.jsdelivr.net https://img.icons8.com https://www.google.com https://images.unsplash.com https://ui-avatars.com https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://www.linkedin.com; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net;"
   }
 }
